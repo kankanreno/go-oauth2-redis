@@ -853,8 +853,8 @@ github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfV
 github.com/jung-kurt/gofpdf v1.0.0/go.mod h1:7Id9E/uU8ce6rXgefFLlgrJj/GYY22cpxn+r32jIOes=
 github.com/jung-kurt/gofpdf v1.0.3-0.20190309125859-24315acbbda5/go.mod h1:7Id9E/uU8ce6rXgefFLlgrJj/GYY22cpxn+r32jIOes=
 github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88/go.mod h1:3w7q1U84EfirKl04SVQ/s7nPm1ZPhiXd34z40TNz36k=
-github.com/kankanreno/go-oauth2/v4 v4.6.2 h1:H7hnb3fiDeijGS0/V4uL4XYRZl54sgzZR+QHilMA7X0=
-github.com/kankanreno/go-oauth2/v4 v4.6.2/go.mod h1:GrC312L1HO4whHBhDxfnpRdCWDxe9y8ZiE5rY2D9YY4=
+github.com/kankanreno/go-oauth2/v4 v4.6.3 h1:fy2QzGLeHOkpD8k9pIP12Upd4mbsAWt3uVPl2RHpCdg=
+github.com/kankanreno/go-oauth2/v4 v4.6.3/go.mod h1:GrC312L1HO4whHBhDxfnpRdCWDxe9y8ZiE5rY2D9YY4=
 github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51/go.mod h1:CzGEWj7cYgsdH8dAjBGEr58BoE7ScuLd+fwFZ44+/x8=
 github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI2bnpBCr8=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=

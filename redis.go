@@ -89,14 +89,14 @@ func (s *TokenStore) checkError(result redis.Cmder) (bool, error) {
 	return false, nil
 }
 
-// remove
-func (s *TokenStore) remove(ctx context.Context, key string) error {
+// delete
+func (s *TokenStore) delete(ctx context.Context, key string) error {
 	result := s.cli.Del(ctx, s.wrapperKey(key))
 	_, err := s.checkError(result)
 	return err
 }
 
-func (s *TokenStore) removeToken(ctx context.Context, tokenString string, isRefresh bool) error {
+func (s *TokenStore) deleteToken(ctx context.Context, tokenString string, isRefresh bool) error {
 	basicID, err := s.getBasicID(ctx, tokenString)
 	if err != nil {
 		return err
@@ -104,7 +104,7 @@ func (s *TokenStore) removeToken(ctx context.Context, tokenString string, isRefr
 		return nil
 	}
 
-	err = s.remove(ctx, tokenString)
+	err = s.delete(ctx, tokenString)
 	if err != nil {
 		return err
 	}
@@ -124,7 +124,7 @@ func (s *TokenStore) removeToken(ctx context.Context, tokenString string, isRefr
 	if err := iresult.Err(); err != nil && err != redis.Nil {
 		return err
 	} else if iresult.Val() == 0 {
-		return s.remove(ctx, basicID)
+		return s.delete(ctx, basicID)
 	}
 
 	return nil
@@ -205,19 +205,19 @@ func (s *TokenStore) Create(ctx context.Context, info oauth2.TokenInfo) error {
 	return nil
 }
 
-// RemoveByCode Use the authorization code to delete the token information
-func (s *TokenStore) RemoveByCode(ctx context.Context, code string) error {
-	return s.remove(ctx, code)
+// DeleteByCode Use the authorization code to delete the token information
+func (s *TokenStore) DeleteByCode(ctx context.Context, code string) error {
+	return s.delete(ctx, code)
 }
 
-// RemoveByAccess Use the access token to delete the token information
-func (s *TokenStore) RemoveByAccess(ctx context.Context, access string) error {
-	return s.removeToken(ctx, access, false)
+// DeleteByAccess Use the access token to delete the token information
+func (s *TokenStore) DeleteByAccess(ctx context.Context, access string) error {
+	return s.deleteToken(ctx, access, false)
 }
 
-// RemoveByRefresh Use the refresh token to delete the token information
-func (s *TokenStore) RemoveByRefresh(ctx context.Context, refresh string) error {
-	return s.removeToken(ctx, refresh, true)
+// DeleteByRefresh Use the refresh token to delete the token information
+func (s *TokenStore) DeleteByRefresh(ctx context.Context, refresh string) error {
+	return s.deleteToken(ctx, refresh, true)
 }
 
 // GetByCode Use the authorization code for token information data

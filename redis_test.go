@@ -42,7 +42,7 @@ func TestTokenStore(t *testing.T) {
 			So(err, ShouldBeNil)
 			So(cinfo.GetUserID(), ShouldEqual, info.UserID)
 
-			err = store.RemoveByCode(ctx, info.Code)
+			err = store.DeleteByCode(ctx, info.Code)
 			So(err, ShouldBeNil)
 
 			cinfo, err = store.GetByCode(ctx, info.Code)
@@ -67,7 +67,7 @@ func TestTokenStore(t *testing.T) {
 			So(err, ShouldBeNil)
 			So(ainfo.GetUserID(), ShouldEqual, info.GetUserID())
 
-			err = store.RemoveByAccess(ctx, info.GetAccess())
+			err = store.DeleteByAccess(ctx, info.GetAccess())
 			So(err, ShouldBeNil)
 
 			ainfo, err = store.GetByAccess(ctx, info.GetAccess())
@@ -95,7 +95,7 @@ func TestTokenStore(t *testing.T) {
 			So(err, ShouldBeNil)
 			So(rinfo.GetUserID(), ShouldEqual, info.GetUserID())
 
-			err = store.RemoveByRefresh(ctx, info.GetRefresh())
+			err = store.DeleteByRefresh(ctx, info.GetRefresh())
 			So(err, ShouldBeNil)
 
 			rinfo, err = store.GetByRefresh(ctx, info.GetRefresh())
@@ -131,7 +131,7 @@ func TestTokenStoreWithKeyNamespace(t *testing.T) {
 			So(err, ShouldBeNil)
 			So(cinfo.GetUserID(), ShouldEqual, info.UserID)
 
-			err = store.RemoveByCode(ctx, info.Code)
+			err = store.DeleteByCode(ctx, info.Code)
 			So(err, ShouldBeNil)
 
 			cinfo, err = store.GetByCode(ctx, info.Code)
@@ -156,7 +156,7 @@ func TestTokenStoreWithKeyNamespace(t *testing.T) {
 			So(err, ShouldBeNil)
 			So(ainfo.GetUserID(), ShouldEqual, info.GetUserID())
 
-			err = store.RemoveByAccess(ctx, info.GetAccess())
+			err = store.DeleteByAccess(ctx, info.GetAccess())
 			So(err, ShouldBeNil)
 
 			ainfo, err = store.GetByAccess(ctx, info.GetAccess())
@@ -184,7 +184,7 @@ func TestTokenStoreWithKeyNamespace(t *testing.T) {
 			So(err, ShouldBeNil)
 			So(rinfo.GetUserID(), ShouldEqual, info.GetUserID())
 
-			err = store.RemoveByRefresh(ctx, info.GetRefresh())
+			err = store.DeleteByRefresh(ctx, info.GetRefresh())
 			So(err, ShouldBeNil)
 
 			rinfo, err = store.GetByRefresh(ctx, info.GetRefresh())
